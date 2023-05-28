@@ -9,19 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jm-dominguez/RIPuppet.git"
+    "url": ""
   },
   "keywords": [
     "Testing",
     "Ripping",
     "GUI"
   ],
-  "author": "Juan Manuel Domínguez Andrés Felipe López",
+  "author": "Luz Stella Ochoa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jm-dominguez/RIPuppet/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/jm-dominguez/RIPuppet#readme",
+  "homepage": "",
   "dependencies": {
     "faker": "^4.1.0",
     "firebase": "^9.21.0",

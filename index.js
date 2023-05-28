@@ -372,21 +372,26 @@ async function getTextInputs(page, elementList){
 }
 //Method to obtain the buttons of the page and push them to the list in the params.
 async function getButtons(page, elementList){
+  console.log('lista previa ' + elementList.length);
   let buttons = await page.$$('button');
   let button;
   for (let i = 0; i < buttons.length ; i++ ){
     let disabled = page.evaluate((btn)=>{
-      return typeof btn.getAttribute("disabled") === "string" || btn.getAttribute("aria-disabled") === "true";
+      //return typeof btn.getAttribute("disabled") === "string" || btn.getAttribute("aria-disabled") === "true";
+      return btn.getAttribute("id") == "ember11"
     }, buttons[i]);
-    if(!disabled){
-      button = {
-        'type' : 'button',
-        'element': buttons[i],
-        'url': page.url()
+    disabled.then((res) => {
+      if (!res){
+        button = {
+          'type' : 'button',
+          'element': buttons[i],
+          'url': page.url()
+        }
+        elementList.push(button);
       }
-      elementList.push(button);
-    }
+    });
   }
+  console.log('lista posterior ' + elementList.length);
 }
 //Method to obtain the dropdowns of the page and push them to the list in the params.
 async function getDropdowns(page, elementList){
@@ -639,11 +644,11 @@ async function fillInput(elementHandle, page){
   }
   else if(type === 'password'){
     elementHandle.click();
-    page.keyboard.type(faker.internet.password()); 
+    page.keyboard.type('tJnAQA#T632v#cD'); 
   }
   else if(type === 'email'){
     elementHandle.click();
-    page.keyboard.type(faker.internet.email());
+    page.keyboard.type('lucystell@gmail.com');
   }
   else if (type === 'tel'){
     elementHandle.click();
